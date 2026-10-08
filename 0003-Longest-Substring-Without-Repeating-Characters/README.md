@@ -43,8 +43,8 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 ## Solution
 
 - **Language**: Java
-- **Runtime**: 0 ms
-- **Memory**: 42.5 MB
+- **Runtime**: 66 ms
+- **Memory**: 48 MB
 
 ---
 
