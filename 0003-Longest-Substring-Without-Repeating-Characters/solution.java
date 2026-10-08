@@ -1,39 +1,24 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
-        int carry = 0;
+    public int lengthOfLongestSubstring(String s) {
+       HashSet<Character> set = new HashSet<>();
 
-        while (l1 != null || l2 != null || carry != 0) {
-            int x = (l1 != null) ? l1.val : 0;
-            int y = (l2 != null) ? l2.val : 0;
+        int left = 0;
+        int maxLength = 0;
 
-            int sum = x + y + carry;
+        for (int right = 0; right < s.length(); right++) {
 
-            carry = sum / 10;
-            int digit = sum % 10;
-
-            current.next = new ListNode(digit);
-            current = current.next;
-
-            if (l1 != null) {
-                l1 = l1.next;
+            while (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
             }
 
-            if (l2 != null) {
-                l2 = l2.next;
-            }
+            set.add(s.charAt(right));
+
+            maxLength = Math.max(maxLength, right - left + 1);
         }
-        return dummy.next;  
+
+        return maxLength;
+
+
     }
 }
